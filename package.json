@@ -1,6 +1,6 @@
 {
-  "name": "angular-express-starter",
-  "version": "0.2.0",
+  "name": "ng-weather-webapp",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "start": "ts-node --project server ./server/index.ts",
@@ -17,6 +17,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "6.1.1",
+    "@angular/cdk": "^6.2.0",
     "@angular/cli": "6.1.2",
     "@angular/common": "6.1.1",
     "@angular/compiler": "6.1.1",
@@ -38,10 +39,12 @@
     "@types/method-override": "0.0.29",
     "@types/morgan": "^1.7.32",
     "@types/node": "^8.0.47",
+    "axios": "^0.18.0",
     "body-parser": "^1.17.2",
     "bootstrap": "^4.0.0",
     "codelyzer": "~4.0.0",
     "core-js": "^2.5.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
@@ -60,8 +63,7 @@
     "ts-node": "^7.0.0",
     "tslint": "~5.11.0",
     "typescript": "^2.9.2",
-    "zone.js": "^0.8.26",
-    "@angular/cdk": "^6.2.0"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
