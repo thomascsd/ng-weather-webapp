@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as methodOverride from 'method-override';
 import * as logger from 'morgan';
 import * as path from 'path';
+import * as env from './env';
 import ApiRouter from './routes/api-router';
 
 export default class Server {
