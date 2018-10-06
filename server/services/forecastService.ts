@@ -8,7 +8,7 @@ export class ForecastService {
   }
 
   async getCurrent(lat: number, lon: number) {
-    const baseUrl = 'https://api.weatherbit.io/v2.0/current ';
+    const baseUrl = 'https://api.weatherbit.io/v2.0/current';
     const res = await this.getRes(baseUrl, lat, lon);
     return res.data;
   }

@@ -6,10 +6,19 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NebularModule } from './nebular/nebular.module';
+import { WeathersModule } from './weathers/weathers.module';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    NebularModule,
+    WeathersModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

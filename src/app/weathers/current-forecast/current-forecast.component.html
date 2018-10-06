@@ -1,3 +1,9 @@
-<p>
-  current-forecast works!
-</p>
+<ng-container *ngFor="let item of forecastData$ | async as list">
+  <nb-card accent="info">
+    <nb-card-header>{{item.city_name}}</nb-card-header>
+    <nb-card-body>
+      <img [src]="getImageUrl(item.weather.icon)">
+      {{item.temp}}
+    </nb-card-body>
+  </nb-card>
+</ng-container>

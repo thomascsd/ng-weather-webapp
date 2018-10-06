@@ -1,5 +1,13 @@
-<app-header></app-header>
-<main class="main-content">
-  <router-outlet></router-outlet>
-</main>
-<app-footer></app-footer>
+<nb-layout>
+  <nb-layout-header>
+    <app-header></app-header>
+  </nb-layout-header>
+  <nb-layout-column>
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </nb-layout-column>
+  <nb-layout-footer>
+    <app-footer></app-footer>
+  </nb-layout-footer>
+</nb-layout>
