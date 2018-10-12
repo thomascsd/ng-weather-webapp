@@ -15,7 +15,7 @@ export class ForecastService {
 
   private async getRes(baseUrl: string, lat: number, lon: number) {
     const url = `${baseUrl}?key=${
-      process.env.API_Key
+      process.env.API_KEY
     }&lang=zh-tw&lat=${lat}&lon=${lon}`;
     const res = await axios.get<any>(url);
     return res;

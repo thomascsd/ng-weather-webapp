@@ -5,19 +5,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { DaysForecastComponent } from './weathers/days-forecast/days-forecast.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'current', pathMatch: 'full' },
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '/', redirectTo: '/forecast', pathMatch: 'full' },
-      {
-        path: '/forecast',
-        component: CurrentForecastComponent,
-        children: [
-          { path: '/current', component: CurrentForecastComponent },
-          { path: '/days', component: DaysForecastComponent }
-        ]
-      }
+      { path: 'current', component: CurrentForecastComponent },
+      { path: 'days', component: DaysForecastComponent }
     ]
   }
 ];
