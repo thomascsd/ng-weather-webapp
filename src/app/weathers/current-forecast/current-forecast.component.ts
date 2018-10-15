@@ -6,7 +6,6 @@ import {
   Datum
 } from './state';
 import { Observable } from 'rxjs';
-import { first, map } from 'rxjs/Operators';
 
 @Component({
   selector: 'app-current-forecast',
@@ -37,9 +36,5 @@ export class CurrentForecastComponent implements OnInit {
     );
 
     this.store.setLoading(false);
-  }
-
-  getImageUrl(name: string) {
-    return `https://www.weatherbit.io/static/img/icons/${name}.png`;
   }
 }

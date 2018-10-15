@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
-import { CurrentForecast } from './current-forecast.model';
+import { Forecast } from '../../models/forecast.model';
 
-export interface CurrentForecastState extends EntityState<CurrentForecast> {}
+export interface CurrentForecastState extends EntityState<Forecast> {}
 
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'current-forecast' })
-export class CurrentForecastStore extends EntityStore<CurrentForecastState, CurrentForecast> {
+export class CurrentForecastStore extends EntityStore<CurrentForecastState, Forecast> {
 
   constructor() {
     super();

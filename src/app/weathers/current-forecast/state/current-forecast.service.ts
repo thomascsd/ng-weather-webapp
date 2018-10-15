@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
 import { CurrentForecastStore } from './current-forecast.store';
 import { HttpClient } from '@angular/common/http';
-import { CurrentForecast } from './current-forecast.model';
+import { Forecast } from '../../models/forecast.model';
 
 @Injectable({ providedIn: 'root' })
 export class CurrentForecastService {
@@ -13,7 +13,7 @@ export class CurrentForecastService {
 
   get(lat: number, lon: number) {
     const url = `/api/getCurrent?lat=${lat}&lon=${lon}`;
-    this.http.get(url).subscribe((entities: CurrentForecast) => {
+    this.http.get(url).subscribe((entities: Forecast) => {
       this.currentForecastStore.set([entities]);
     });
   }

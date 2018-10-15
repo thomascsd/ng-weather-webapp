@@ -1,6 +1,6 @@
 import { ID } from '@datorama/akita';
 
-export interface CurrentForecast {
+export interface Forecast {
   id: ID;
   data: Datum[];
   count: number;
@@ -31,9 +31,9 @@ export interface Weather {
   description: string;
 }
 
-export function createCurrentForecast(params: Partial<CurrentForecast>) {
+export function createCurrentForecast(params: Partial<Forecast>) {
   return {
     data: [],
     count: 0
-  } as CurrentForecast;
+  } as Forecast;
 }

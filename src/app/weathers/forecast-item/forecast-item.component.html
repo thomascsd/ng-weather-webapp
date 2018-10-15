@@ -1,0 +1,7 @@
+<nb-card accent="info">
+  <nb-card-header>{{forecast.city_name}}</nb-card-header>
+  <nb-card-body>
+    <img [src]="getImageUrl(forecast.weather.icon)">
+    {{forecast.temp}}
+  </nb-card-body>
+</nb-card>
