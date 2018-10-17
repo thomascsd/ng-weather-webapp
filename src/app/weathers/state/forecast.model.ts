@@ -2,11 +2,11 @@ import { ID } from '@datorama/akita';
 
 export interface Forecast {
   id: ID;
-  data: Datum[];
+  data: ForecastDatum[];
   count: number;
 }
 
-export interface Datum {
+export interface ForecastDatum {
   lat: string;
   lon: string;
   pres: number;

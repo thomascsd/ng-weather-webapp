@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  CurrentForecastQuery,
-  CurrentForecastStore,
-  CurrentForecastService,
-  Datum
-} from './state';
+import { CurrentForecastQuery, ForecastService, ForecastDatum } from '../state';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,28 +8,23 @@ import { Observable } from 'rxjs';
   styleUrls: ['./current-forecast.component.scss']
 })
 export class CurrentForecastComponent implements OnInit {
-  forecastData$: Observable<Datum[]>;
+  forecastData$: Observable<ForecastDatum[]>;
 
   constructor(
     private query: CurrentForecastQuery,
-    private store: CurrentForecastStore,
-    private service: CurrentForecastService
+    private service: ForecastService
   ) {}
 
   ngOnInit() {
-    this.store.setLoading(true);
-
     navigator.geolocation.getCurrentPosition(
       (pos: Position) => {
         const coords = pos.coords;
         this.forecastData$ = this.query.selectActive(state => state.data);
-        this.service.get(coords.latitude, coords.longitude);
+        this.service.getCurrent(coords.latitude, coords.longitude);
       },
       error => {
         console.log(error);
       }
     );
-
-    this.store.setLoading(false);
   }
 }
