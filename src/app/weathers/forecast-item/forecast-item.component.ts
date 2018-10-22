@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Datum } from '../models/forecast.model';
+import { ForecastDatum } from '../state/forecast.model';
 
 @Component({
   selector: 'app-forecast-item',
@@ -8,7 +8,7 @@ import { Datum } from '../models/forecast.model';
 })
 export class ForecastItemComponent implements OnInit {
   @Input()
-  forecast: Datum;
+  forecast: ForecastDatum;
 
   constructor() {}
 

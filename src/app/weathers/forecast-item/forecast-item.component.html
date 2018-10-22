@@ -1,7 +1,11 @@
-<nb-card accent="info">
-  <nb-card-header>{{forecast.city_name}}</nb-card-header>
-  <nb-card-body>
-    <img [src]="getImageUrl(forecast.weather.icon)">
-    {{forecast.temp}}
-  </nb-card-body>
-</nb-card>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{forecast.city_name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="getImageUrl(forecast.weather.icon)">
+  <mat-card-content>
+    <p>
+      {{forecast.temp}}
+    </p>
+  </mat-card-content>
+</mat-card>
