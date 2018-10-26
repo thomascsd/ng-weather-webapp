@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CurrentForecastComponent } from './weathers/current-forecast/current-forecast.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DaysForecastComponent } from './weathers/days-forecast/days-forecast.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'current', pathMatch: 'full' },
+  { path: '', redirectTo: 'days', pathMatch: 'full' },
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'current', component: CurrentForecastComponent },
       { path: 'days', component: DaysForecastComponent }
     ]
   }

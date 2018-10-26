@@ -4,14 +4,14 @@ import { Router } from '../interfaces/Router';
 import { ForecastService } from '../services/forecastService';
 
 const get5DaysRoute: Route = {
-  path: '/get5Days',
+  path: '/getDays',
   async handler(req: express.Request, res: express.Response) {
     const service = new ForecastService();
     const lat = req.query.lat;
     const lon = req.query.lon;
 
     try {
-      const data = await service.get5Days(lat, lon);
+      const data = await service.getDays(lat, lon);
       res.json(data);
     } catch (error) {
       res.json(error);
@@ -19,15 +19,14 @@ const get5DaysRoute: Route = {
   }
 };
 
-const currentRoute: Route = {
-  path: '/getCurrent',
+const locationRoute: Route = {
+  path: '/getLocation',
   async handler(req: express.Request, res: express.Response) {
     const service = new ForecastService();
-    const lat = req.query.lat;
-    const lon = req.query.lon;
+    const city = req.query.city;
 
     try {
-      const data = await service.getCurrent(lat, lon);
+      const data = await service.getLocation(city);
       res.json(data);
     } catch (error) {
       res.json(error);
@@ -38,6 +37,6 @@ const currentRoute: Route = {
 export default class ApiRouter implements Router {
   setRouter(router: express.Router) {
     router.get(get5DaysRoute.path, get5DaysRoute.handler);
-    router.get(currentRoute.path, currentRoute.handler);
+    router.get(locationRoute.path, locationRoute.handler);
   }
 }
