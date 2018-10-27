@@ -8,7 +8,7 @@ import { ForecastDatum } from '../state/forecast.model';
 })
 export class ForecastItemComponent implements OnInit {
   @Input()
-  forecast: ForecastDatum;
+  forecastDatum: ForecastDatum;
 
   constructor() {}
 

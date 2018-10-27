@@ -1,3 +1,5 @@
-<ng-container *ngFor="let forecast of forecastData$ | async">
-  <app-forecast-item [forecast]="forecast"></app-forecast-item>
-</ng-container>
+<div class="row">
+  <div class="col-md-3 mb-3" *ngFor="let data of forecastData$ | async">
+    <app-forecast-item [forecastDatum]="data"></app-forecast-item>
+  </div>
+</div>

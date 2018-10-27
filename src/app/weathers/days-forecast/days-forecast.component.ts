@@ -18,7 +18,7 @@ export class DaysForecastComponent implements OnInit {
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(
       (pos: Position) => {
-        this.forecastData$ = this.query.selectActive(forecast => forecast.data);
+        this.forecastData$ = this.query.selectAll();
         this.service.getDays(pos.coords.latitude, pos.coords.longitude);
       },
       error => {

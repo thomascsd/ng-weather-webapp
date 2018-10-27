@@ -4,12 +4,12 @@ import {
   LocationForecastStore,
   LocationForecastState
 } from './location-forecast.store';
-import { Forecast } from './forecast.model';
+import { ForecastDatum } from './forecast.model';
 
 @Injectable({ providedIn: 'root' })
 export class LocationForecastQuery extends QueryEntity<
   LocationForecastState,
-  Forecast
+  ForecastDatum
 > {
   constructor(protected store: LocationForecastStore) {
     super(store);

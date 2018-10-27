@@ -1,28 +1,20 @@
 import { ID } from '@datorama/akita';
 
-export interface Forecast {
-  id: ID;
-  data: ForecastDatum[];
-  count: number;
-}
-
 export interface ForecastDatum {
-  lat: string;
-  lon: string;
-  pres: number;
-  timezone: string;
-  ob_time: string;
-  country_code: string;
-  clouds: number;
-  ts: number;
-  weather: Weather;
-  uv: number;
-  datetime: string;
-  city_name: string;
-  sunrise: string;
-  sunset: string;
+  id: ID;
+  clouds?: number;
+  weather?: Weather;
+  valid_date?: string;
   temp: number;
-  rh: number;
+  max_temp: number;
+  min_temp: number;
+  uv?: number;
+  rh?: number;
+  city_name?: string;
+  lon?: string;
+  timezone?: string;
+  lat?: string;
+  country_code?: string;
 }
 
 export interface Weather {
@@ -31,9 +23,11 @@ export interface Weather {
   description: string;
 }
 
-export function createCurrentForecast(params: Partial<Forecast>) {
+export function createCurrentForecast(params: Partial<ForecastDatum>) {
   return {
-    data: [],
-    count: 0
-  } as Forecast;
+    temp: 0,
+    max_temp: 0,
+    min_temp: 0,
+    city_name: ''
+  } as ForecastDatum;
 }
