@@ -17,10 +17,7 @@ export class ForecastService {
     const url = `/api/getDays?lat=${lat}&lon=${lon}`;
     this.http
       .get(url)
-      .pipe(
-        map(this.toForecastDatums),
-        take(5)
-      )
+      .pipe(map(this.toForecastDatums))
       .subscribe((entities: ForecastDatum[]) => {
         this.daysForecastStore.set(entities);
       });
@@ -35,9 +32,11 @@ export class ForecastService {
 
   private toForecastDatums(forecast: any) {
     const datas = forecast.data as ForecastDatum[];
+    let index = 1;
     const newDatas = datas.map(m => {
       return {
         ...m,
+        id: index++,
         city_name: forecast.city_name,
         lon: forecast.lon,
         timezone: forecast.timezone,
