@@ -18,7 +18,7 @@ export class LocationForecastComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadData('tokyo');
+    this.loadData('Tokyo');
   }
 
   changeCity(city: string) {
@@ -27,7 +27,7 @@ export class LocationForecastComponent implements OnInit {
 
   private loadData(city: string) {
     this.forecastData$ = this.query.selectAll({
-      limitTo: 5
+      limitTo: 8
     });
     this.servie.getLocation(city);
   }

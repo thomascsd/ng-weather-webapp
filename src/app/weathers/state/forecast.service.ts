@@ -24,10 +24,13 @@ export class ForecastService {
   }
 
   getLocation(city: string) {
-    const url = `/api/getLocation?city=${city}`;
-    this.http.get(url).subscribe((entities: ForecastDatum) => {
-      this.locationForecastStore.set([entities]);
-    });
+    const url = `/api/getLocation?city=${encodeURIComponent(city)}`;
+    this.http
+      .get(url)
+      .pipe(map(this.toForecastDatums))
+      .subscribe((entities: ForecastDatum[]) => {
+        this.locationForecastStore.set(entities);
+      });
   }
 
   private toForecastDatums(forecast: any) {
