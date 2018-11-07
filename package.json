@@ -32,6 +32,7 @@
     "@angular/platform-server": "7.0.0",
     "@angular/pwa": "^0.7.5",
     "@angular/router": "7.0.0",
+    "@angular/service-worker": "7.0.0",
     "@datorama/akita": "^1.9.6",
     "@types/body-parser": "^1.17.0",
     "@types/express": "^4.16.0",
