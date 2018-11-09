@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'weathers', pathMatch: 'full' },
+  { path: '', redirectTo: 'weathers/days', pathMatch: 'full' },
   {
     path: '',
     component: LayoutComponent,

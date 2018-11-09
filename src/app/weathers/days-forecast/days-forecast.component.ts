@@ -19,7 +19,7 @@ export class DaysForecastComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(
       (pos: Position) => {
         this.forecastData$ = this.query.selectAll({
-          limitTo: 5
+          limitTo: 8
         });
         this.service.getDays(pos.coords.latitude, pos.coords.longitude);
       },
