@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class DaysForecastComponent implements OnInit {
   forecastData$: Observable<ForecastDatum[]>;
+  loading$: Observable<boolean>;
 
   constructor(
     private query: DaysForecastQuery,
@@ -21,6 +22,7 @@ export class DaysForecastComponent implements OnInit {
         this.forecastData$ = this.query.selectAll({
           limitTo: 8
         });
+        this.loading$ = this.query.selectLoading();
         this.service.getDays(pos.coords.latitude, pos.coords.longitude);
       },
       error => {

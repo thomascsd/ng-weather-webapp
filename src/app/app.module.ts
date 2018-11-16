@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { WeathersModule } from './weathers/weathers.module';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -18,7 +19,10 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    WeathersModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
