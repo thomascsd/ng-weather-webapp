@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DaysForecastQuery, ForecastService, ForecastDatum } from '../state';
+import {
+  DaysForecastQuery,
+  ForecastService,
+  ForecastDatum,
+  DaysForecastStore
+} from '../state';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,12 +18,14 @@ export class DaysForecastComponent implements OnInit {
 
   constructor(
     private query: DaysForecastQuery,
-    private service: ForecastService
+    private service: ForecastService,
+    private store: DaysForecastStore
   ) {}
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(
       (pos: Position) => {
+        this.store.setLoading(true);
         this.forecastData$ = this.query.selectAll({
           limitTo: 8
         });
