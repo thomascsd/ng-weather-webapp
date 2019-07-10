@@ -143,5 +143,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "defaultCollection": "@datorama/akita"
   }
 }
