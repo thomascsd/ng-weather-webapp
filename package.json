@@ -1,14 +1,16 @@
 {
   "name": "ng-weather-webapp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node --project ./server/tsconfig.json ./server/index.ts",
-    "dev:server": "nodemon -e ts -w ./server -x npm run server",
-    "dev:client": "ng serve --proxy-config proxy.conf.json",
-    "server": "ts-node --project ./server/tsconfig.json ./server/index.ts",
+    "start": "node ./dist/server/index.js",
+    "dev:server": "nodemon ./dist/server/index.js",
+    "dev:client": "ng serve --proxy-config proxy.conf.json -o",
     "deploy": "git push origin master && git push heroku master",
-    "build": "ng build --prod",
+    "build": "npm run build:server && npm run build:client && build:cpy",
+    "build:client": "ng build --prod",
+    "build:server": "tsc --project server",
+    "build:cpy": "cpy ./server/.env ./dist/server/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -70,6 +72,7 @@
     "@datorama/akita-ngdevtools": "^3.0.2",
     "@types/dotenv": "^6.1.1",
     "codelyzer": "^5.0.1",
+    "cpy-cli": "^2.0.0",
     "nodemon": "^1.19.1"
   }
 }
