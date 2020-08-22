@@ -67,6 +67,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1000.7",
+    "@angular-devkit/core": "^10.0.7",
     "@angular-devkit/schematics": "^10.0.7",
     "@datorama/akita-ngdevtools": "^3.0.2",
     "@types/dotenv": "^8.2.0",
