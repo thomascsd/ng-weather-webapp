@@ -20,13 +20,5 @@
     "module": "esnext",
     "baseUrl": "./"
   },
-  "baseUrl": "src",
-  "paths": {
-    "@app/*": [
-      "app/*"
-    ],
-    "@env/*": [
-      "environments/*"
-    ]
-  }
+  "baseUrl": "src"
 }
