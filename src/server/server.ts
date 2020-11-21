@@ -1,27 +1,25 @@
 import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as methodOverride from 'method-override';
+import { useExpressServer, useContainer } from 'routing-controllers';
+import { Container } from 'typedi';
 import * as logger from 'morgan';
 import * as path from 'path';
-import ApiRouter from './routes/api-router';
 
 export default class Server {
   public app: express.Application;
-  private distFolder = path.join(__dirname, '..', '..', 'client');
+  private distFolder = path.join(__dirname, '..', 'client');
 
   constructor() {
+    useContainer(Container);
     this.app = express();
     this.config();
     this.route();
-    this.api();
+    this.setControllers();
   }
 
   public config() {
     this.app.set('view engine', 'html');
     this.app.set('views', 'src');
     this.app.use(logger('dev'));
-    this.app.use(bodyParser.json());
-    this.app.use(methodOverride());
 
     // Server static files from /dist
     this.app.get('*.*', express.static(this.distFolder));
@@ -37,12 +35,11 @@ export default class Server {
     });
   }
 
-  public api() {
-    const router: express.Router = express.Router();
-    const apiRouter: ApiRouter = new ApiRouter();
-
-    apiRouter.setRouter(router);
-    this.app.use('/api', router);
+  public setControllers() {
+    useExpressServer(this.app, {
+      routePrefix: 'api',
+      controllers: [__dirname + '/controllers/**/*.js'],
+    });
   }
 
   public run(port: number) {
