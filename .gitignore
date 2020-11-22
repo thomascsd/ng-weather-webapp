@@ -43,4 +43,4 @@ yarn-error.log
 .DS_Store
 Thumbs.db
 
-/server/*.env
+src/server/*.env
