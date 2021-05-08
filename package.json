@@ -33,6 +33,7 @@
     "@angular/router": "11.2.12",
     "@angular/service-worker": "11.2.12",
     "@datorama/akita": "^5.2.2",
+    "@netlify/functions": "^0.7.2",
     "@types/body-parser": "^1.19.0",
     "@types/express": "^4.17.9",
     "@types/jasmine": "~3.6.2",
