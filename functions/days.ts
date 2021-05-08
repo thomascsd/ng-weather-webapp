@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
 import { Handler } from '@netlify/functions';
 import { ForecastService } from './services/forecastService';
+
+dotenv.config({ path: './.env' });
 
 const handler: Handler = async (event, context) => {
   const lat = parseInt(event.queryStringParameters.lat, 10);

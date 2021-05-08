@@ -5,30 +5,26 @@
   "projects": {
     "ng-weather-webapp": {
       "root": "",
-      "sourceRoot": "src/client/",
+      "sourceRoot": "src/",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": true,
-            "outputPath": "dist/client",
-            "index": "src/client/index.html",
-            "main": "src/client/main.ts",
-            "tsConfig": "src/client/tsconfig.app.json",
-            "polyfills": "src/client/polyfills.ts",
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
             "stylePreprocessorOptions": {
               "includePaths": ["src", "src/themes"]
             },
-            "assets": [
-              "src/client/assets",
-              "src/client/favicon.ico",
-              "src/client/manifest.json"
-            ],
+            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/client/sass/styles.scss"
+              "src/sass/styles.scss"
             ],
             "scripts": []
           },
@@ -50,8 +46,8 @@
               "buildOptimizer": true,
               "fileReplacements": [
                 {
-                  "replace": "src/client/environments/environment.ts",
-                  "with": "src/client/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "serviceWorker": true
@@ -78,10 +74,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/client/test.ts",
+            "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/client/polyfills.ts",
-            "tsConfig": "src/client/tsconfig.spec.json",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
               {
@@ -89,22 +85,15 @@
                 "inject": true
               },
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/client/sass/styles.scss"
+              "src/sass/styles.scss"
             ],
-            "assets": [
-              "src/client/assets",
-              "src/client/favicon.ico",
-              "src/client/manifest.json"
-            ]
+            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/client/tsconfig.app.json",
-              "src/client/tsconfig.spec.json"
-            ],
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**"]
           }
         }
