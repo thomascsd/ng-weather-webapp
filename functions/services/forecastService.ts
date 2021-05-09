@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Inject } from 'typedi';
 
-@Inject()
 export class ForecastService {
   apiUrl = 'https://api.weatherbit.io/v2.0/forecast/daily';
 

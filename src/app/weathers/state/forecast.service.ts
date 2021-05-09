@@ -14,7 +14,7 @@ export class ForecastService {
   ) {}
 
   getDays(lat: number, lon: number) {
-    const url = `/.netlify/functions/getDays?lat=${lat}&lon=${lon}`;
+    const url = `/.netlify/functions/days?lat=${lat}&lon=${lon}`;
     this.http
       .get(url)
       .pipe(map(this.toForecastDatums))
@@ -24,7 +24,7 @@ export class ForecastService {
   }
 
   getLocation(city: string) {
-    const url = `/.netlify/functions/getLocation?city=${encodeURIComponent(city)}`;
+    const url = `/.netlify/functions/locations?city=${encodeURIComponent(city)}`;
     this.http
       .get(url)
       .pipe(map(this.toForecastDatums))
