@@ -3,7 +3,7 @@ import { DaysForecastStore } from './days-forecast.store';
 import { HttpClient } from '@angular/common/http';
 import { ForecastDatum } from './forecast.model';
 import { LocationForecastStore } from './location-forecast.store';
-import { map, take } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ForecastService {
@@ -14,7 +14,7 @@ export class ForecastService {
   ) {}
 
   getDays(lat: number, lon: number) {
-    const url = `/api/getDays?lat=${lat}&lon=${lon}`;
+    const url = `/.netlify/functions/getDays?lat=${lat}&lon=${lon}`;
     this.http
       .get(url)
       .pipe(map(this.toForecastDatums))
@@ -24,7 +24,7 @@ export class ForecastService {
   }
 
   getLocation(city: string) {
-    const url = `/api/getLocation?city=${encodeURIComponent(city)}`;
+    const url = `/.netlify/functions/getLocation?city=${encodeURIComponent(city)}`;
     this.http
       .get(url)
       .pipe(map(this.toForecastDatums))
@@ -36,7 +36,7 @@ export class ForecastService {
   private toForecastDatums(forecast: any) {
     const datas = forecast.data as ForecastDatum[];
     let index = 1;
-    const newDatas = datas.map(m => {
+    const newDatas = datas.map((m) => {
       return {
         ...m,
         id: index++,
@@ -44,7 +44,7 @@ export class ForecastService {
         lon: forecast.lon,
         timezone: forecast.timezone,
         lat: forecast.lat,
-        country_code: forecast.country_code
+        country_code: forecast.country_code,
       } as ForecastDatum;
     });
 

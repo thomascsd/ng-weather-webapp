@@ -6,10 +6,7 @@ export interface LocationForecastState extends EntityState<ForecastDatum> {}
 
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'location-forecast' })
-export class LocationForecastStore extends EntityStore<
-  LocationForecastState,
-  ForecastDatum
-> {
+export class LocationForecastStore extends EntityStore<LocationForecastState, ForecastDatum> {
   constructor() {
     super();
   }
