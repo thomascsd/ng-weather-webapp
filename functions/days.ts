@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import { Handler } from '@netlify/functions';
 import { ForecastService } from './services/forecastService';
-import 'reflect-metadata';
 
 dotenv.config({ path: './.env' });
 
