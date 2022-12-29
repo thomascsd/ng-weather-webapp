@@ -112,7 +112,6 @@
       }
     }
   },
-  "defaultProject": "ng-weather-webapp",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
@@ -123,7 +122,9 @@
     }
   },
   "cli": {
-    "defaultCollection": "@datorama/akita",
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "@datorama/akita"
+    ]
   }
 }
