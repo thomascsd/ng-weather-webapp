@@ -1,21 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LocationForecastQuery } from '../state/location-forecast.query';
-import { ForecastService } from '../state/forecast.service';
-import { ForecastDatum } from '../state';
+import { ForecastService } from '../../core/services/forecast.service';
+import { ForecastDatum } from '../../core/models/forecast.model';
 
 @Component({
   selector: 'app-location-forecast',
   templateUrl: './location-forecast.component.html',
-  styleUrls: ['./location-forecast.component.scss']
+  styleUrls: ['./location-forecast.component.scss'],
 })
 export class LocationForecastComponent implements OnInit {
-  forecastData$: Observable<ForecastDatum[]>;
+  forecastData$!: Observable<ForecastDatum[]>;
 
-  constructor(
-    private query: LocationForecastQuery,
-    private servie: ForecastService
-  ) {}
+  constructor(private servie: ForecastService) {}
 
   ngOnInit() {
     this.loadData('Tokyo');
@@ -26,9 +22,6 @@ export class LocationForecastComponent implements OnInit {
   }
 
   private loadData(city: string) {
-    this.forecastData$ = this.query.selectAll({
-      limitTo: 8
-    });
-    this.servie.getLocation(city);
+    this.forecastData$ = this.servie.getLocation(city);
   }
 }

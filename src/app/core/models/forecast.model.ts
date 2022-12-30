@@ -1,9 +1,6 @@
-import { ID } from '@datorama/akita';
-
 export interface ForecastDatum {
-  id: ID;
   clouds?: number;
-  weather?: Weather;
+  weather: Weather;
   valid_date?: string;
   temp: number;
   max_temp: number;
@@ -28,6 +25,6 @@ export function createCurrentForecast(params: Partial<ForecastDatum>) {
     temp: 0,
     max_temp: 0,
     min_temp: 0,
-    city_name: ''
+    city_name: '',
   } as ForecastDatum;
 }

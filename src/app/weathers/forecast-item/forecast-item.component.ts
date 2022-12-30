@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ForecastDatum } from '../state/forecast.model';
+import { ForecastDatum } from '../../core/models/forecast.model';
 
 @Component({
   selector: 'app-forecast-item',
   templateUrl: './forecast-item.component.html',
-  styleUrls: ['./forecast-item.component.scss']
+  styleUrls: ['./forecast-item.component.scss'],
 })
 export class ForecastItemComponent implements OnInit {
   @Input()
-  forecastDatum: ForecastDatum;
+  forecastDatum!: ForecastDatum;
 
   constructor() {}
 
