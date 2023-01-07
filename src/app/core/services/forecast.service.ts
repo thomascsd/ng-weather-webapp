@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ForecastDatum } from '../models/forecast.model';
+import { environment } from './../../../environments/environment';
 
 import { map } from 'rxjs/operators';
 
@@ -9,12 +10,12 @@ export class ForecastService {
   constructor(private http: HttpClient) {}
 
   getDays(lat: number, lon: number) {
-    const url = `/.netlify/functions/days?lat=${lat}&lon=${lon}`;
+    const url = `${environment.apiUrl}/api/forecast/days?lat=${lat}&lon=${lon}`;
     return this.http.get(url).pipe(map(this.toForecastDatums));
   }
 
   getLocation(city: string) {
-    const url = `/.netlify/functions/locations?city=${encodeURIComponent(city)}`;
+    const url = `${environment.apiUrl}/api/forecast/location?city=${encodeURIComponent(city)}`;
     return this.http.get(url).pipe(map(this.toForecastDatums));
   }
 

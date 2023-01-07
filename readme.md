@@ -13,7 +13,6 @@ Weather app play with Angular
 ## Feature
 
 - Support PWA
-- Manage state with [Akita](https://github.com/datorama/akita)
 
 ## License
 

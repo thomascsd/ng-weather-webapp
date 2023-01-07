@@ -1,11 +1,9 @@
-<div class="lodingContainer" *ngIf="loading; else item">
+<div class="lodingContainer" *ngIf="loading">
   <mat-spinner></mat-spinner>
 </div>
 
-<ng-template #item>
-  <div class="row">
-    <div class="col-md-3 mb-3" *ngFor="let data of forecastData$ | async">
-      <app-forecast-item [forecastDatum]="data"></app-forecast-item>
-    </div>
+<div class="row">
+  <div class="col-md-3 mb-3" *ngFor="let data of forecastData$ | async">
+    <app-forecast-item [forecastDatum]="data"></app-forecast-item>
   </div>
-</ng-template>
+</div>
