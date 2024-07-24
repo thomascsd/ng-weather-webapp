@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +13,9 @@ import { WeathersModule } from './weathers/weathers.module';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
@@ -24,7 +24,6 @@ import { WeathersModule } from './weathers/weathers.module';
       enabled: environment.production,
     }),
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class AppModule {}
