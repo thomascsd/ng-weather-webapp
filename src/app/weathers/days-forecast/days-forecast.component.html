@@ -1,9 +1,13 @@
-<div class="lodingContainer" *ngIf="loading">
-  <mat-spinner></mat-spinner>
-</div>
-
-<div class="row">
-  <div class="col-md-3 mb-3" *ngFor="let data of forecastData$ | async">
-    <app-forecast-item [forecastDatum]="data"></app-forecast-item>
+@defer {
+  <div class="columns">
+    @for (data of forecastData$ | async; track data.country_code) {
+      <div class="coloumn">
+        <app-forecast-item [forecastDatum]="data"></app-forecast-item>
+      </div>
+    }
   </div>
-</div>
+} @loading {
+  <div class="lodingContainer">
+    <mat-spinner></mat-spinner>
+  </div>
+}

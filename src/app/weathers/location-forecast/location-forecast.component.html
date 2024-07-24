@@ -1,18 +1,24 @@
-<div class="row mb-3">
-  <div class="col-md-3">
+<div class="columns mb-3">
+  <div class="column">
     <button mat-stroked-button color="primary" (click)="changeCity('Tokyo')">Tokyo</button>
   </div>
-  <div class="col-md-3">
-    <button mat-stroked-button color="primary" (click)="changeCity('Los Angeles')">Los Angeles</button></div>
-  <div class="col-md-3">
+  <div class="column">
+    <button mat-stroked-button color="primary" (click)="changeCity('Los Angeles')">
+      Los Angeles
+    </button>
+  </div>
+  <div class="column">
     <button mat-stroked-button color="primary" (click)="changeCity('New York')">New York</button>
   </div>
-  <div class="col-md-3">
+  <div class="column">
     <button mat-stroked-button color="primary" (click)="changeCity('Sydney')">Sydney</button>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-3 mb-3" *ngFor="let data of forecastData$ | async">
-    <app-forecast-item [forecastDatum]="data"></app-forecast-item>
-  </div>
+
+<div class="columns">
+  @for (data of forecastData$ | async; track data.city_name) {
+    <div class="column mb-3">
+      <app-forecast-item [forecastDatum]="data"></app-forecast-item>
+    </div>
+  }
 </div>
