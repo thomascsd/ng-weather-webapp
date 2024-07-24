@@ -1,24 +1,28 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <img mat-card-avatar [src]="getImageUrl(forecastDatum.weather.icon)" />
-    <mat-card-title>{{ forecastDatum.valid_date }}</mat-card-title>
-    <mat-card-subtitle>{{ forecastDatum.city_name }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="row">
-      <div class="col-md-7 temp">{{ forecastDatum.temp }}<sup>。</sup></div>
-      <div class="col-md-5">
-        <div class="row">
-          <div class="col-md-12">
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img [src]="getImageUrl(forecastDatum.weather.icon)" alt="Weather image" />
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{{ forecastDatum.valid_date }}</p>
+        <p class="subtitle is-6">{{ forecastDatum.city_name }}</p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-7 temp">{{ forecastDatum.temp }}<sup>。</sup></div>
+      <div class="column">
+        <div class="columns">
+          <div class="column">
             <span class="up mr-1">↑</span><span class="up">{{ forecastDatum.max_temp }}</span>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
+          <div class="column">
             <span class="down mr-1">↓</span><span class="down">{{ forecastDatum.min_temp }}</span>
           </div>
         </div>
       </div>
     </div>
-  </mat-card-content>
-</mat-card>
+  </div>
+</div>
