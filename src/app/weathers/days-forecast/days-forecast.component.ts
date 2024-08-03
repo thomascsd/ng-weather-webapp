@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../../material/material.module';
 import { Observable } from 'rxjs';
 import { ForecastService } from '../../core/services/forecast.service';
 import { ForecastDatum } from '../../core/models/forecast.model';
 import { tap } from 'rxjs/operators';
+import { ForecastItemComponent } from '../forecast-item/forecast-item.component';
 
 @Component({
   selector: 'app-days-forecast',
+  standalone: true,
+  imports: [ForecastItemComponent, MaterialModule, CommonModule],
   templateUrl: './days-forecast.component.html',
   styleUrls: ['./days-forecast.component.scss'],
 })
@@ -26,7 +31,7 @@ export class DaysForecastComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-      }
+      },
     );
   }
 }

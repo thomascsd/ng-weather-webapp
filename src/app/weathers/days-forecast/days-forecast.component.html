@@ -1,12 +1,12 @@
 @defer {
-  <div class="columns">
+  <div class="columns is-multiline">
     @for (data of forecastData$ | async; track data.country_code) {
-      <div class="coloumn">
+      <div class="column is-one-quarter">
         <app-forecast-item [forecastDatum]="data"></app-forecast-item>
       </div>
     }
   </div>
-} @loading {
+} @placeholder (minimum 50ms) {
   <div class="lodingContainer">
     <mat-spinner></mat-spinner>
   </div>

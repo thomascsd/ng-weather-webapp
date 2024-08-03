@@ -11,17 +11,14 @@
         <p class="subtitle is-6">{{ forecastDatum.city_name }}</p>
       </div>
     </div>
+    <div class="temp">{{ forecastDatum.temp }}<sup>。</sup></div>
+
     <div class="columns">
-      <div class="column is-7 temp">{{ forecastDatum.temp }}<sup>。</sup></div>
       <div class="column">
-        <div class="columns">
-          <div class="column">
-            <span class="up mr-1">↑</span><span class="up">{{ forecastDatum.max_temp }}</span>
-          </div>
-          <div class="column">
-            <span class="down mr-1">↓</span><span class="down">{{ forecastDatum.min_temp }}</span>
-          </div>
-        </div>
+        <span class="up mr-1">↑</span><span class="up">{{ forecastDatum.max_temp }}</span>
+      </div>
+      <div class="column">
+        <span class="down mr-1">↓</span><span class="down">{{ forecastDatum.min_temp }}</span>
       </div>
     </div>
   </div>
