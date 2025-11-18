@@ -8,11 +8,10 @@ import { tap } from 'rxjs/operators';
 import { ForecastItemComponent } from '../forecast-item/forecast-item.component';
 
 @Component({
-  selector: 'app-days-forecast',
-  standalone: true,
-  imports: [ForecastItemComponent, MaterialModule, CommonModule],
-  templateUrl: './days-forecast.component.html',
-  styleUrls: ['./days-forecast.component.scss'],
+    selector: 'app-days-forecast',
+    imports: [ForecastItemComponent, MaterialModule, CommonModule],
+    templateUrl: './days-forecast.component.html',
+    styleUrls: ['./days-forecast.component.scss']
 })
 export class DaysForecastComponent implements OnInit {
   forecastData$!: Observable<ForecastDatum[]>;

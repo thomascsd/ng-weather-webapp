@@ -4,9 +4,10 @@ import { ForecastService } from '../../core/services/forecast.service';
 import { ForecastDatum } from '../../core/models/forecast.model';
 
 @Component({
-  selector: 'app-location-forecast',
-  templateUrl: './location-forecast.component.html',
-  styleUrls: ['./location-forecast.component.scss'],
+    selector: 'app-location-forecast',
+    templateUrl: './location-forecast.component.html',
+    styleUrls: ['./location-forecast.component.scss'],
+    standalone: false
 })
 export class LocationForecastComponent implements OnInit {
   forecastData$!: Observable<ForecastDatum[]>;
