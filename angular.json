@@ -16,9 +16,7 @@
             },
             "index": "src/index.html",
             "tsConfig": "src/tsconfig.app.json",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "polyfills": ["src/polyfills.ts"],
             "stylePreprocessorOptions": {
               "includePaths": ["src", "src/themes"]
             },
@@ -73,24 +71,6 @@
           "builder": "@angular/build:extract-i18n",
           "options": {
             "buildTarget": "ng-weather-webapp:build"
-          }
-        },
-        "test": {
-          "builder": "@angular/build:karma",
-          "options": {
-            "main": "src/test.ts",
-            "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [],
-            "styles": [
-              {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-                "inject": true
-              },
-              "src/sass/styles.scss"
-            ],
-            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"]
           }
         },
         "lint": {

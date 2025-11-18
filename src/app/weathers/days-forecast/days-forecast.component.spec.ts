@@ -1,17 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { describe, beforeEach, it, expect } from 'vitest';
 import { DaysForecastComponent } from './days-forecast.component';
 
 describe('DaysForecastComponent', () => {
   let component: DaysForecastComponent;
   let fixture: ComponentFixture<DaysForecastComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ DaysForecastComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [DaysForecastComponent],
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DaysForecastComponent);

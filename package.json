@@ -5,7 +5,9 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build --configuration production",
-    "test": "ng test",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -26,19 +28,10 @@
     "@angular/platform-server": "20.3.12",
     "@angular/router": "20.3.12",
     "@angular/service-worker": "20.3.12",
-    "@types/jasmine": "~3.6.2",
-    "@types/jasminewd2": "^2.0.8",
     "@types/node": "^15.0.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "core-js": "^3.27.1",
-    "jasmine-core": "~4.5.0",
-    "jasmine-spec-reporter": "~7.0.0",
-    "karma": "~6.4.1",
-    "karma-chrome-launcher": "~3.1.1",
-    "karma-coverage-istanbul-reporter": "~3.0.3",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "^2.0.0",
     "rxjs": "^6.5.4",
     "tslib": "^2.0.3",
     "typescript": "5.8.3",
@@ -55,8 +48,13 @@
     "@angular/build": "^20.3.10",
     "@typescript-eslint/eslint-plugin": "7.17.0",
     "@typescript-eslint/parser": "7.17.0",
+    "@vitest/coverage-v8": "^4.0.10",
+    "@vitest/ui": "^4.0.10",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
-    "prettier": "3.3.3"
+    "happy-dom": "^20.0.10",
+    "jsdom": "^27.2.0",
+    "prettier": "3.3.3",
+    "vitest": "^4.0.10"
   }
 }
