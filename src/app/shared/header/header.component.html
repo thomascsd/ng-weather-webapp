@@ -1,7 +1,9 @@
-<nav class="navbar">
+<nav class="navbar is-fixed-top">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" [routerLink]="['/']"> NG Weather app </a>
+      <a class="navbar-item has-text-weight-bold is-size-4" [routerLink]="['/']">
+        <span class="has-text-info">NG</span> Weather
+      </a>
       <span class="navbar-burger burger" data-target="navbarMenu">
         <span></span>
         <span></span>
@@ -13,10 +15,10 @@
         <div class="navbar-item">
           <div class="control has-icons-left"></div>
         </div>
-        <a class="navbar-item is-size-5 has-text-weight-semibold" [routerLink]="['/days']">
+        <a class="navbar-item" [routerLink]="['/days']" routerLinkActive="is-active">
           8 Days Forecast
         </a>
-        <a class="navbar-item is-size-5 has-text-weight-semibold" [routerLink]="['/locations']">
+        <a class="navbar-item" [routerLink]="['/locations']" routerLinkActive="is-active">
           Location Forecast
         </a>
       </div>

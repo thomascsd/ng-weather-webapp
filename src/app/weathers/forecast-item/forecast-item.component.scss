@@ -1,10 +1,40 @@
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: none;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
 .temp {
-  font-size: 42px;
+  font-size: 48px;
+  font-weight: 700;
   text-align: center;
+  color: #0f172a;
+  margin: 1rem 0;
 }
+
 .up {
-  color: #ff4136;
+  color: #ef4444;
+  font-weight: 600;
 }
+
 .down {
-  color: #0074d9;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.media-content {
+  .title {
+    color: #334155;
+    margin-bottom: 0.25rem !important;
+  }
+  .subtitle {
+    color: #64748b;
+  }
 }

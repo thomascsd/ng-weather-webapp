@@ -1,0 +1,17 @@
+.footer {
+  background-color: transparent;
+  padding: 3rem 1.5rem 6rem;
+  border-top: 1px solid #f1f5f9;
+  color: #64748b;
+
+  strong {
+    color: #475569;
+  }
+
+  a {
+    color: #3b82f6;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

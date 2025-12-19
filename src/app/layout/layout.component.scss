@@ -1,15 +1,13 @@
 .main {
-  min-height: 100%;
+  min-height: 100vh;
+  padding-top: 4rem; /* 為固定導航欄預留空間 */
 }
 
-.content {
+main.container {
   flex: 1;
-  // display: flex;
-  // justify-content: center;
-  // flex-direction: column;
+  padding: 2rem 1rem;
 }
 
-app-header,
 app-footer {
-  height: 50px;
+  padding: 2rem 0;
 }
