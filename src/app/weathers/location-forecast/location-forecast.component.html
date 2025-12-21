@@ -9,10 +9,16 @@
   <button class="button is-rounded is-info is-light" (click)="changeCity('Sydney')">Sydney</button>
 </div>
 
-<div class="columns">
-  @for (data of forecastData$ | async; track data.city_name) {
-    <div class="column mb-3">
-      <app-forecast-item [forecastDatum]="data"></app-forecast-item>
-    </div>
-  }
-</div>
+@if (forecastData.isLoading()) {
+  <div class="lodingContainer">
+    <mat-spinner></mat-spinner>
+  </div>
+} @else {
+  <div class="columns">
+    @for (data of forecastData.value(); track data.city_name) {
+      <div class="column mb-3">
+        <app-forecast-item [forecastDatum]="data"></app-forecast-item>
+      </div>
+    }
+  </div>
+}

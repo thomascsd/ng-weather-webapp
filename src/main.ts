@@ -1,9 +1,6 @@
 import { enableProdMode, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-
 import { environment } from './environments/environment';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { AppRoutingModule } from './app/app-routing.module';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -16,11 +13,17 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        provideZoneChangeDetection(),importProvidersFrom(BrowserModule, AppRoutingModule, WeathersModule, ServiceWorkerModule.register('ngsw-worker.js', {
-            enabled: environment.production,
-        })),
-        provideHttpClient(withInterceptorsFromDi()),
-        provideAnimations(),
-    ]
+  providers: [
+    provideZoneChangeDetection(),
+    importProvidersFrom(
+      BrowserModule,
+      AppRoutingModule,
+      WeathersModule,
+      ServiceWorkerModule.register('ngsw-worker.js', {
+        enabled: environment.production,
+      }),
+    ),
+    provideHttpClient(withFetch()),
+    provideAnimations(),
+  ],
 });

@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "outDir": "../dist/",
+    "baseUrl": "",
+    "target": "esnext"
+  },
+  "baseUrl": "./",
+  "include": ["./**/*"]
+}

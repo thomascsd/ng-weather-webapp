@@ -1,28 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { httpResource, HttpResourceRef } from '@angular/common/http';
 import { ForecastDatum } from '../models/forecast.model';
-import { environment } from './../../../environments/environment';
-
-import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ForecastService {
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
-  getDays(lat: number, lon: number) {
-    const url = `${environment.apiUrl}/api/forecast/days?lat=${lat}&lon=${lon}`;
-    return this.http.get(url).pipe(map(this.toForecastDatums));
+  getDays(lat: number, lon: number): HttpResourceRef<ForecastDatum[]> {
+    const path = `api/forecast/days?lat=${lat}&lon=${lon}`;
+    const url = `$/.netlify/function/proxy?path=${encodeURIComponent(path)}`;
+
+    return httpResource<ForecastDatum[]>(() => url, {
+      parse: (data) => this.toForecastDatums(data),
+      defaultValue: [],
+    });
   }
 
-  getLocation(city: string) {
-    const url = `${environment.apiUrl}/api/forecast/location?city=${encodeURIComponent(city)}`;
-    return this.http.get(url).pipe(map(this.toForecastDatums));
+  getLocation(city: string): HttpResourceRef<ForecastDatum[]> {
+    const path = `api/forecast/location?city=${encodeURIComponent(city)}`;
+    const url = `$/.netlify/function/proxy?path=${encodeURIComponent(path)}`;
+    return httpResource<ForecastDatum[]>(() => url, {
+      parse: (data) => this.toForecastDatums(data),
+      defaultValue: [],
+    });
   }
 
-  private toForecastDatums(forecast: any) {
-    const datas = forecast.data as ForecastDatum[];
+  private toForecastDatums(forecast: any): ForecastDatum[] {
+    const data = forecast.data as ForecastDatum[];
     let index = 1;
-    const newDatas = datas.map((m) => {
+    const newData = data.map((m) => {
       return {
         ...m,
         id: index++,
@@ -34,6 +40,6 @@ export class ForecastService {
       } as ForecastDatum;
     });
 
-    return newDatas;
+    return newData;
   }
 }
