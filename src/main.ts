@@ -19,9 +19,9 @@ bootstrapApplication(AppComponent, {
       BrowserModule,
       AppRoutingModule,
       WeathersModule,
-      ServiceWorkerModule.register('ngsw-worker.js', {
-        enabled: environment.production,
-      }),
+      // ServiceWorkerModule.register('ngsw-worker.js', {
+      //   enabled: environment.production,
+      // }),
     ),
     provideHttpClient(withFetch()),
     provideAnimations(),

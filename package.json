@@ -5,6 +5,7 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build --configuration production",
+    "build:dev": "ng build",
     "dev": "netlify dev",
     "dev:client": "ng serve --proxy-config proxy.conf.json",
     "test": "vitest",

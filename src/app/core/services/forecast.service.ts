@@ -6,23 +6,46 @@ import { ForecastDatum } from '../models/forecast.model';
 export class ForecastService {
   constructor() {}
 
-  getDays(lat: number, lon: number): HttpResourceRef<ForecastDatum[]> {
-    const path = `api/forecast/days?lat=${lat}&lon=${lon}`;
-    const url = `$/.netlify/function/proxy?path=${encodeURIComponent(path)}`;
-
-    return httpResource<ForecastDatum[]>(() => url, {
-      parse: (data) => this.toForecastDatums(data),
-      defaultValue: [],
-    });
+  getDays(req: () => { lat: number; lon: number } | undefined): HttpResourceRef<ForecastDatum[]> {
+    return httpResource<ForecastDatum[]>(
+      () => {
+        const params = req();
+        if (!params) {
+          return undefined;
+        }
+        return {
+          url: '/.netlify/functions/proxy',
+          params: {
+            path: encodeURIComponent(`forecast/days?lat=${params.lat}&lon=${params.lon}`),
+          },
+        };
+      },
+      {
+        parse: (data) => this.toForecastDatums(data),
+        defaultValue: [],
+      },
+    );
   }
 
-  getLocation(city: string): HttpResourceRef<ForecastDatum[]> {
-    const path = `api/forecast/location?city=${encodeURIComponent(city)}`;
-    const url = `$/.netlify/function/proxy?path=${encodeURIComponent(path)}`;
-    return httpResource<ForecastDatum[]>(() => url, {
-      parse: (data) => this.toForecastDatums(data),
-      defaultValue: [],
-    });
+  getLocation(city: () => string | undefined): HttpResourceRef<ForecastDatum[]> {
+    return httpResource<ForecastDatum[]>(
+      () => {
+        const cityValue = city();
+        if (!cityValue) {
+          return undefined;
+        }
+        return {
+          url: '/.netlify/functions/proxy',
+          params: {
+            path: encodeURIComponent(`forecast/location?city=${cityValue}`),
+          },
+        };
+      },
+      {
+        parse: (data) => this.toForecastDatums(data),
+        defaultValue: [],
+      },
+    );
   }
 
   private toForecastDatums(forecast: any): ForecastDatum[] {

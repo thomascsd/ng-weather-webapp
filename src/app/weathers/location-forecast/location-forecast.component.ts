@@ -1,8 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { HttpResourceRef } from '@angular/common/http';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ForecastService } from '../../core/services/forecast.service';
-import { ForecastDatum } from '../../core/models/forecast.model';
 import { ForecastItemComponent } from '../forecast-item/forecast-item.component';
 
 @Component({
@@ -13,19 +11,14 @@ import { ForecastItemComponent } from '../forecast-item/forecast-item.component'
 })
 export class LocationForecastComponent implements OnInit {
   private service = inject(ForecastService);
-  forecastData!: HttpResourceRef<ForecastDatum[]>;
+  city = signal<string>('Tokyo');
+  forecastData = this.service.getLocation(() => this.city());
 
-  constructor() {
-    this.loadData('Tokyo');
-  }
+  constructor() {}
 
   ngOnInit() {}
 
   changeCity(city: string) {
-    this.loadData(city);
-  }
-
-  private loadData(city: string) {
-    this.forecastData = this.service.getLocation(city);
+    this.city.set(city);
   }
 }
