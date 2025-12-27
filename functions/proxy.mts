@@ -26,7 +26,7 @@ const handler: Handler = async (event) => {
   if ('host' in headers) delete headers['host'];
 
   const isBodyMethod = ['POST', 'PUT', 'PATCH'].includes(method);
-  const path = event.queryStringParameters?.path || '';
+  const path = decodeURIComponent(event.queryStringParameters?.path || '');
 
   try {
     console.log('🚀 ~ handler ~ apiUrl + path:', apiUrl + path);
