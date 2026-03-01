@@ -13,12 +13,16 @@
   <div class="lodingContainer">
     <mat-spinner></mat-spinner>
   </div>
-} @else {
+} @else if (forecastData.hasValue()) {
   <div class="columns">
     @for (data of forecastData.value(); track data.city_name) {
       <div class="column mb-3">
         <app-forecast-item [forecastDatum]="data"></app-forecast-item>
       </div>
     }
+  </div>
+} @else {
+  <div class="errorContainer">
+    <p class="errorMessage">請稍後再試。{{ forecastData.error()?.message }}</p>
   </div>
 }
